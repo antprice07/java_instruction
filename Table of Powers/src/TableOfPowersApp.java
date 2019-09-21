@@ -14,10 +14,10 @@ public class TableOfPowersApp {
 		while(cont.equalsIgnoreCase("y")) {
 			System.out.print("Enter an integer: ");
 			integer = sc.nextInt();
+
 			sc.nextLine();
 			
-			System.out.println("Number\t\t" + "Squared\t\t" + "Cubed\n" 
-					+ "======\t\t" + "=======\t\t" + "=====");
+			System.out.println("Number\t\t" + "Squared\t\t" + "Cubed\n" + "======\t\t" + "=======\t\t" + "=====");
 			
 			for(int i = 1;i <= integer;i++) {
 			int square = i * i;
