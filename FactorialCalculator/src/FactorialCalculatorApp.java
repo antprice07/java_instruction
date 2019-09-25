@@ -10,7 +10,8 @@ public class FactorialCalculatorApp {
 		
 		String cont = "y";
 		
-		int count,fact;
+		int count;
+		int fact = 1;
 		
 		while(cont.equalsIgnoreCase("y")) {
 							
@@ -19,11 +20,13 @@ public class FactorialCalculatorApp {
 			sc.nextLine();
 			
 			for(int i = 1;i <= count;i++) {
-					fact = i * i;				
+					fact *= i;				
 			}
+			
 		System.out.println("The factorial of " + count + " is " + fact);
 		
 		System.out.print("Continue? y/n: ");
+		cont = sc.nextLine();
 		}
 		System.out.println("Goodbye!");
 		sc.close();
