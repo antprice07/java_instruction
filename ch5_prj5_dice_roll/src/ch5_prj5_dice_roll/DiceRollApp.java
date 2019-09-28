@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class DiceRollApp {
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the Dice Roll app!");
+		System.out.println("Welcome to the Dice Roller!");
 		
 		System.out.print("Would you like to roll the dice? y/n: ");
 		Scanner sc = new Scanner(System.in);
