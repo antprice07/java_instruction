@@ -37,6 +37,8 @@ public class Credit {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
+	public String toString() {
+		String s = "ID: " + id + " Movie ID: "+ movieID +" Actor ID: "+ actorID + " Role: "+ role;
+		return s;
+	}
 }

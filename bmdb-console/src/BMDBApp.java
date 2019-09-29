@@ -15,7 +15,18 @@ public class BMDBApp {
 		Credit cr3 = new Credit(3,1,3,"Ariadne");
 		Credit cr4 = new Credit(4,2,2,"Jordan Belfort");
 		
+		System.out.println(actor1);
+		System.out.println(actor2);
+		System.out.println(actor3);
 		System.out.println();
+		System.out.println(movie1);
+		System.out.println(movie2);
+		System.out.println();
+		System.out.println(cr1);
+		System.out.println(cr2);
+		System.out.println(cr3);
+		System.out.println(cr4);
+		
 	}
 
 }

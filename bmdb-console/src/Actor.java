@@ -56,8 +56,10 @@ public class Actor {
 		this.birthDate = birthDate;
 	}
 	
-	
-	
+	public String toString() {
+		String s = "ID: " + id + " Name: "+ firstName +" "+ lastName +" Gender: "+ gender + " Birth Date: " + birthDate;
+		return s;
+	}
 	
 	
 	

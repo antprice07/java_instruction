@@ -59,7 +59,8 @@ public class Movie {
 	}
 	
 	public String toString() {
-		string s = "ID: " + id + " Title: "+title+" Rating: "+
+		String s = "ID: " + id + " Title: "+title+" Rating: "+ rating + " Year: "+ year + " Director: " + director;
+		return s;
 	}
 	
 	
