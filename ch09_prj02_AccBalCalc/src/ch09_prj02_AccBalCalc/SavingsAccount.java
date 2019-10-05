@@ -20,11 +20,11 @@ public class SavingsAccount extends Account {
 	
 
 	public double getInterestPaid() {
-		interestPaid = balance * interestRate;
 		return interestPaid;
 	}
 	
 	public void addInterest() {
+		interestPaid = balance * interestRate;
 		balance+=interestPaid;
 		
 	}

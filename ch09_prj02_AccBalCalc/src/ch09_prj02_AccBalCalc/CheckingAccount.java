@@ -13,10 +13,6 @@ public class CheckingAccount extends Account {
 		return fee;
 	}
 
-	public void setFee(double fee) {
-		this.fee = fee;
-	}
-	
 	public double applyFee() {
 		balance-=fee;
 		return balance;
