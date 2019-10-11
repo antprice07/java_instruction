@@ -3,7 +3,7 @@ public class TicTacToeApp {
 
 	public static void main(String[] args) {
 
-		boolean gameOver = false;
+		boolean isGameOver = false;
 		String p1 = " X ";
 		String p2 = " O ";
 		System.out.println("Welcome to Tic Tac Toe");
@@ -22,13 +22,14 @@ public class TicTacToeApp {
 			gridPrint(space);
 			int selection = choice(p1);
 			fillSpace(selection,space,p1);
-			gameOver = gameOverCheck(space,p1);
+			isGameOver = isGameOverCheck(space,p1);
+			if(isGameOver) break;
 			gridPrint(space);
 			selection = choice(p2);
 			fillSpace(selection,space,p2);
-			gameOver = gameOverCheck(space,p2);
+			isGameOver = isGameOverCheck(space,p2);
 
-		}while (!gameOver);
+		}while (!isGameOver);
 		System.out.println("Game Over. :)");
 	}
 
@@ -87,7 +88,7 @@ public class TicTacToeApp {
 			choices[2][2] = player;
 		}
 	}
-	static boolean gameOverCheck(String[][]space,String player) {
+	static boolean isGameOverCheck(String[][]space,String player) {
 		boolean gameOver = false;
 		if(space[0][0].equalsIgnoreCase(player) && space[0][1].equalsIgnoreCase(player)&&space[0][2].equalsIgnoreCase(player)) {
 			gameOver=true;
