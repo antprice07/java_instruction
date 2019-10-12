@@ -1,3 +1,4 @@
+package util;
 import java.util.Scanner;
 
 public class Console {
@@ -14,6 +15,7 @@ public class Console {
     public static String getLine(String prompt) {
         System.out.print(prompt);
         String s = sc.nextLine();  // read user entry
+          // discard any other data entered on the line
         return s;
     }
   
