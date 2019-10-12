@@ -92,34 +92,42 @@ public class TicTacToeApp {
 		boolean gameOver = false;
 		if(space[0][0].equalsIgnoreCase(player) && space[0][1].equalsIgnoreCase(player)&&space[0][2].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[0][0].equalsIgnoreCase(player)&& space[1][0].equalsIgnoreCase(player)&&space[2][0].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[0][1].equalsIgnoreCase(player)&& space[1][1].equalsIgnoreCase(player)&&space[2][1].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[0][2].equalsIgnoreCase(player)&& space[1][2].equalsIgnoreCase(player)&&space[2][2].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[1][0].equalsIgnoreCase(player)&& space[1][1].equalsIgnoreCase(player)&&space[1][2].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[2][0].equalsIgnoreCase(player)&& space[2][1].equalsIgnoreCase(player)&&space[2][2].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[0][0].equalsIgnoreCase(player)&& space[1][1].equalsIgnoreCase(player)&&space[2][2].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}
 		if(space[0][2].equalsIgnoreCase(player)&& space[1][1].equalsIgnoreCase(player)&&space[2][0].equalsIgnoreCase(player)) {
 			gameOver=true;
+			System.out.println(player+ "wins!");
 			return gameOver;
 		}else
 			return gameOver;
