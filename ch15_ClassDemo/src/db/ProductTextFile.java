@@ -11,7 +11,7 @@ public class ProductTextFile implements DAO<Product> {
 	private List<Product> products = null;
 	private Path productsPath = null;
 	private File productsFile = null;
-	private final String TAB = "/t";
+	private final String TAB = "\t";
 
 	public ProductTextFile() {
 		productsPath = Paths.get("c:/bootcamp/java/fileiodemo/products.txt");
