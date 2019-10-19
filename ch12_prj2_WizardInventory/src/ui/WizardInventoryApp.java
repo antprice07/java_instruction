@@ -9,7 +9,7 @@ import util.Console;
 public class WizardInventoryApp {
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the Wizard Inventory App");
+		System.out.println("Welcome to the Wizard Inventory Game!");
 		List<String> inventory = new ArrayList<String>();
 		inventory.addAll(Arrays.asList("Wooden Staff", "Wizard Hat", "Cloth Shoes"));
 
@@ -28,16 +28,16 @@ public class WizardInventoryApp {
 					System.out.println("You can't carry any more items. Drop something first");
 				
 				}
-				else if (inventory.size() < 4.1) {
-					inventory.add("potion of invisibility");
-					System.out.println("Name: potion of invisibility");
-					System.out.println("potion of invisibility was added.");
+				else {
+					String item = Console.getLine("Name: ");
+					inventory.add(item);
+					System.out.println(item + " was added.");
 				
 				}
 				break;
 				
 			case "edit":
-				int i = Console.getInt("Number: ", 0, 5);
+				int i = Console.getInt("Number: ", 0, inventory.size()+1);
 				i -= 1;
 				String name = Console.getLine("Updated name: ");
 				inventory.set(i, name);
@@ -45,7 +45,7 @@ public class WizardInventoryApp {
 				System.out.println("Item number " + i + " was changed.");
 				break;
 			case "drop":
-				int i2 = Console.getInt("Number: ", 0, 5);
+				int i2 = Console.getInt("Number: ", 0, inventory.size()+1);
 				i2 -= 1;
 				inventory.remove(i2);
 				i2 += 1;
@@ -54,6 +54,8 @@ public class WizardInventoryApp {
 			case "exit":
 				doExit = true;
 				break;
+			default: System.out.println("You must make a seletion from the menu.");
+			continue;
 			}
 		}
 		System.out.println("Deuces!");
@@ -61,10 +63,8 @@ public class WizardInventoryApp {
 	}
 
 	private static void showAll(List<String> inventory) {
-		int count = 1;
 		for (int i = 0; i < inventory.size(); i++) {
-			System.out.println(count + ". " + inventory.get(i));
-			count++;
+			System.out.println((i+1) + ". " + inventory.get(i));
 		}
 	}
 

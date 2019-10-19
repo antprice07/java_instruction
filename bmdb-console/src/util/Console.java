@@ -1,3 +1,4 @@
+package util;
 import java.util.Scanner;
 
 public class Console {
@@ -6,16 +7,10 @@ public class Console {
 
     public static String getString(String prompt) {
         System.out.print(prompt);
-        String s = sc.next();  // read user entry
-        sc.nextLine();  // discard any other data entered on the line
+        String s = sc.nextLine();
         return s;
     }
     
-    public static String getLine(String prompt) {
-        System.out.print(prompt);
-        String s = sc.nextLine();  // read user entry
-        return s;
-    }
   
     public static int getInt(String prompt) {
         int i = 0;
@@ -28,7 +23,7 @@ public class Console {
             } else {
                 System.out.println("Error! Invalid integer. Try again.");
             }
-            sc.nextLine();  // discard any other data entered on the line
+            sc.nextLine();
         }
         return i;
     }
@@ -62,7 +57,7 @@ public class Console {
             } else {
                 System.out.println("Error! Invalid number. Try again.");
             }
-            sc.nextLine();  // discard any other data entered on the line
+            sc.nextLine();
         }
         return d;
     }
