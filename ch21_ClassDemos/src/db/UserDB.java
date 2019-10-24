@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.User;
+import util.Console;
 
 public class UserDB {
 
 	private Connection getConnection() throws SQLException {
-		String dbURL = "jdbc:mysql://localhost:3306/prs?useSSL=false";
+		String dbURL = "jdbc:mysql://localhost:3306/prs?allowPublicKeyRetrieval=true&useSSL=false";
 		String username = "prs_user";
 		String pwd = "sesame";
 		Connection con = DriverManager.getConnection(dbURL, username, pwd);
@@ -67,6 +68,41 @@ public class UserDB {
 	}
 	
 	public void add() throws SQLException {
-		
+		Statement stmt = getConnection().createStatement();
+		System.out.println("ADD USER");
+		int id = Console.getInt("ID: ");
+		User u = get(id);
+		if(u == null) {
+			String sql = "INSERT INTO user (ID, UserName, Password, FirstName, LastName, PhoneNumber, Email, IsReviewer, IsAdmin) VALUES (";
+			String uname = Console.getString("Username: ");
+			String pwd = Console.getString("Password: ");
+			String fname = Console.getString("First Name: ");
+			String lname = Console.getString("Last Name: ");
+			String phone = Console.getString("Phone number(with dashes):");
+			String email = Console.getString("Email: ");
+			int rvw = Console.getInt("Is this user a reviewer? (1 for yes, 0 for no): ",-1,2);
+			int admin = Console.getInt("Is this user an admin? (1 for yes, 0 for no): ",-1,2);
+			int update = stmt.executeUpdate(sql+id+",'"+uname+"','"+pwd+"','"+fname+"','"+lname+"','"+phone+"','"+email+"',"+rvw+","+admin+")");
+			System.out.println("User added.");
+		}else {
+			System.out.println("Na fam. That is already an ID.");
+		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

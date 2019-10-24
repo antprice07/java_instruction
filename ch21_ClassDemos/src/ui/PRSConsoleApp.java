@@ -40,7 +40,11 @@ public class PRSConsoleApp {
 				}
 				break;
 			case 3:
-				//add
+				try {
+					udb.add();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 				break;
 			case 4:
 				//update
