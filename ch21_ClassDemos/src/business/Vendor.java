@@ -113,6 +113,12 @@ public class Vendor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Vendor [id=" + id + ", code=" + code + ", name=" + name + ", address=" + address + ",\n city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
+	}
 	
 	
 }

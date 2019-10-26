@@ -73,12 +73,23 @@ public class ProductDB {
 			String sql = "UPDATE PRODUCT SET "+choice+"= ? WHERE id = ?";
 			Product productCheck = get(id);
 			if (productCheck!=null) {
+				if(choice.equalsIgnoreCase("price")) {
+					try(PreparedStatement ps = getConnection().prepareStatement(sql)){
+						ps.setDouble(1, Double.parseDouble(change));
+						ps.setInt(2, id);
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}else {
 				try(PreparedStatement ps = getConnection().prepareStatement(sql)){
 					ps.setString(1, change);
 					ps.setInt(2, id);
 					rowCount=ps.executeUpdate();
 				}catch (SQLException e) {
 					e.printStackTrace();
+				}
 				}
 			}else {
 				System.out.println("No Product found with that ID.");

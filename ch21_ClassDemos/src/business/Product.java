@@ -88,6 +88,11 @@ public class Product {
 	public void setPhotoPath(String photoPath) {
 		this.photoPath = photoPath;
 	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", vendorID=" + vendorID + ", partNumber=" + partNumber + ",\nname=" + name
+				+ ", price=" + price + ", unit=" + unit + ", photoPath=" + photoPath + "]";
+	}
 	
 	
 }
