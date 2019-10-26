@@ -79,4 +79,21 @@ public class Console {
         }
         return d;
     }
+    
+    public static boolean getBoolean(String prompt) {
+    	boolean b =false;
+    	boolean isValid = false;
+    	while(!isValid) {
+    		System.out.println(prompt);
+    		if(sc.hasNextBoolean()) {
+    			b = sc.nextBoolean();
+    			isValid = true;
+    		}else {
+    			System.out.println("Error! Must be true or false!");
+    			continue;
+    		}
+    	}
+    	
+    	return b;
+    }
 }
