@@ -87,15 +87,21 @@ public class PRSConsoleApp {
 				}
 				break;
 			case 3:
-				try {
-					udb.addUser();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				System.out.println("ADD USER:");
+				String uname = Console.getString("Username: ");
+				String pw = Console.getString("Password: ");
+				String fname = Console.getString("First name: ");
+				String lname = Console.getString("Last name: ");
+				String phone = Console.getString("Phone number: ");
+				String email = Console.getString("Email: ");
+				boolean rvw = false;
+				boolean admin = false;
+				User u = new User(uname,pw,fname,lname,phone,email,rvw,admin);
+				udb.addUser(u);
 				break;
 			case 4:
 				//update
-				System.out.println("Update User:");
+				System.out.println("UPDATE USER:");
 				id = Console.getInt("What ID would you like to update? ");
 				String choice = Console.getString("Would you like to change Username, Password,\n"
 						+ "FirstName, LastName, PhoneNumber, or Email? ");
@@ -107,7 +113,7 @@ public class PRSConsoleApp {
 				//delete
 				System.out.println("Delete a User:");
 				id = Console.getInt("What is the ID of the user you'd like to delete? ");
-				User u = null;
+				u = null;
 				try {
 					u = udb.get(id);
 				} catch (SQLException e) {

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.User;
-import util.Console;
 
 public class UserDB {
 
@@ -48,22 +47,24 @@ public class UserDB {
 	}
 
 	// NOTE: uses statement instead of prepared statement
-	public void addUser() throws SQLException {
-		Statement stmt = getConnection().createStatement();
-		System.out.println("ADD USER");
-		String sql = "INSERT INTO user (UserName, Password, FirstName, LastName, PhoneNumber, Email, IsReviewer, IsAdmin) VALUES (";
-		String uname = Console.getString("Username: ");
-		String pwd = Console.getString("Password: ");
-		String fname = Console.getString("First Name: ");
-		String lname = Console.getString("Last Name: ");
-		String phone = Console.getString("Phone number(with dashes):");
-		String email = Console.getString("Email: ");
-		int rvw = Console.getInt("Is this user a reviewer? (1 for yes, 0 for no): ", -1, 2);
-		int admin = Console.getInt("Is this user an admin? (1 for yes, 0 for no): ", -1, 2);
-		int rowCount = stmt.executeUpdate(sql + "'" + uname + "','" + pwd + "','" + fname + "','" + lname + "','"
-				+ phone + "','" + email + "'," + rvw + "," + admin + ")");
-		System.out.println("User added.");
-
+	public int addUser(User u) {
+		int rowCount = 0;
+		String sql = "INSERT INTO Product (username,password,firstname,lastname,phonenumber,email,isreviewer,isadmin) VALUES(?,?,?,?,?,?)";
+		try(PreparedStatement ps = getConnection().prepareStatement(sql)){
+			ps.setString(1, u.getUserName());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getFirstName());
+			ps.setString(4, u.getLastName());
+			ps.setString(5, u.getPhoneNumber());
+			ps.setString(6, u.getEmail());
+			ps.setBoolean(7, u.isReviewer());
+			ps.setBoolean(8, u.isAdmin());
+			rowCount=ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rowCount;
 	}
 
 	public int updateUser(int id, String choice, String change) {
