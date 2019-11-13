@@ -1,21 +1,25 @@
 package com.maxtrain.bootcamp.prs.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @Entity
+@Table(uniqueConstraints=@UniqueConstraint(name = "UIDX_username",columnNames = {"username"}))/*makes username unique*/
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(length=20,nullable=false)
 	private String username;
+	@Column(length=10,nullable=false)
 	private String password;
+	@Column(length=20,nullable=false)
 	private String firstName;
+	@Column(length=20,nullable=false)
 	private String lastName;
+	@Column(length=12,nullable=false)
 	private String phone;
+	@Column(length=75,nullable=false)
 	private String email;
 	private boolean isReviewer;
 	private boolean isAdmin;
