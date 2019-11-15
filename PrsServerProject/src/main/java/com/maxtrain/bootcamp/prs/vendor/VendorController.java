@@ -29,12 +29,12 @@ public class VendorController {
 		return JsonResponse.getInstance(vendRepo.findAll());
 	}
 	
-	@GetMapping("/id")
+	@GetMapping("/{id}")
 	public @ResponseBody JsonResponse get(@PathVariable Integer id) {
 		try {
 			Optional<Vendor> v = vendRepo.findById(id);
 			if(!v.isPresent()) {
-				return JsonResponse.getInstance("User not found!");
+				return JsonResponse.getInstance("Vendor not found!");
 			}
 			return JsonResponse.getInstance(v.get());
 		}catch(Exception e) {
@@ -63,7 +63,7 @@ public class VendorController {
 		try {
 			Optional<Vendor> v = vendRepo.findById(id);
 			if(!v.isPresent()) {
-				return JsonResponse.getInstance("User not found!");
+				return JsonResponse.getInstance("Vendor not found!");
 			}
 			vendRepo.deleteById(id);
 			return JsonResponse.getInstance(v.get());
